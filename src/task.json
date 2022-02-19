@@ -1,0 +1,5 @@
+{
+    "task":"Create a function to enter the fibonacci sequence including negative numbers",
+    "place_holder":"def fibonacci(n):",
+    "lang":"python"
+}
