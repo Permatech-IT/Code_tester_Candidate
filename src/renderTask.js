@@ -1,15 +1,22 @@
 import React, { useEffect,useState } from 'react'
 import {useParams} from 'react-router-dom';
-import Task from './task.js';
+import CandidateFrom from './candidateFrom';
 function RenderTask() {
     const {id}=useParams();
     const [loading,setLoading]=useState(true);
+    const [error,setError]=useState(false);
+    const [data,setData]=useState(null);
     useEffect(()=>{
         const getData=async()=>{
             setLoading(true);
-            const response=await fetch(` https://ap-south-1.aws.data.mongodb-api.com/app/application-0-pmrso/endpoint/assessment?id=${id}`);
+            const response=await fetch(`https://ap-south-1.aws.data.mongodb-api.com/app/application-0-pmrso/endpoint/assessment?id=${id}`);
+            if(response.ok){
             const data=await response.json();
-            console.log(data);
+            setData(data);
+            }
+            else{
+                setError(true);
+            }
             setLoading(false);
         }
         getData();        
@@ -20,7 +27,7 @@ function RenderTask() {
         loading?
         <div>Loading</div>
         :
-        <Task/>
+            error?<h1>Task Id invalid</h1>:<CandidateFrom task={data}/>  
     }
     </>
   )

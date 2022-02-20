@@ -1,5 +1,5 @@
 {
-    "task":"Create a function to enter the fibonacci sequence including negative numbers",
+    "task":"Create a function fibonacci that accepts a parameter n and returns the nth number in the Fibonacci sequence.",
     "place_holder":"def fibonacci(n):",
     "lang":"python"
 }
