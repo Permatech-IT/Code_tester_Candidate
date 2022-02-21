@@ -58,8 +58,13 @@ function Task(props) {
             });
 
           }}
-          >Get Response</button>:state==1?"Submitting...":response
-          }
+          >Get Response</button>:state==1?"Submitting...":
+          <>
+            Failed:{response.failed}
+            <br/>
+            Passed:{response.passed}          
+          </>
+}
         
     </div>
   );
