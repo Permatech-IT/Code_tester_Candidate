@@ -42,11 +42,25 @@ function Task(props) {
           </div>
           {state==0?
           <button
-          onClick={()=>{
+          onClick={async ()=>{
+            setState(1);
             console.log({"src":props.code,"candidateId":props.candidateId,"questionId":task.id});
+            fetch(`https://ca28-223-190-91-81.ngrok.io/api/checker`,{
+              method:'POST',
+              headers:{
+                'Content-Type':'application/json'
+              },
+              body:JSON.stringify({"src":props.code,"candidateId":props.candidateId,"questionId":task.id})
+            }).then(res=>res.json())
+            .then(data=>{
+              setResponse(data);
+              setState(2);
+            });
+
           }}
-          >Get Response</button>:""
-        }
+          >Get Response</button>:state==1?"Submitting...":response
+          }
+        
     </div>
   );
 }
