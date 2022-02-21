@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import ReactDOM from 'react-dom'; 
 import RenderTask from './renderTask'; 
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
