@@ -27,7 +27,7 @@ function RenderTask() {
         loading?
         <div>Loading</div>
         :
-            error?<h1>Task Id invalid</h1>:<CandidateFrom task={data}/>  
+            error?<h1>Task Id invalid</h1>:<CandidateFrom task={data[0]["tasks"]}/>  
     }
     </>
   )
